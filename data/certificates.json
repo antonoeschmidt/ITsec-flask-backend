@@ -1,0 +1,25 @@
+{
+  "certificates": [
+    {
+      "student_id": "1001",
+      "student_name": "Alice Smith",
+      "degree": "Bachelor of Science in Computer Science",
+      "date_of_graduation": "May 15, 2023",
+      "honor": "Summa Cum Laude"
+    },
+    {
+      "student_id": "1002",
+      "student_name": "Bob Johnson",
+      "degree": "Bachelor of Arts in History",
+      "date_of_graduation": "May 15, 2023",
+      "honor": "Magna Cum Laude"
+    },
+    {
+      "student_id": "1003",
+      "student_name": "Carol Davis",
+      "degree": "Bachelor of Science in Chemistry",
+      "date_of_graduation": "May 15, 2023",
+      "honor": "Cum Laude"
+    }
+  ]
+}

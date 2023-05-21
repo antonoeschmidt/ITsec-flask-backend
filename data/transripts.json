@@ -1,0 +1,76 @@
+{
+  "transcripts": [
+    {
+      "student_id": "1001",
+      "student_name": "Alice Smith",
+      "courses": [
+        {
+          "course_code": "CS101",
+          "course_name": "Introduction to Computer Science",
+          "grade": "A",
+          "credits": 3
+        },
+        {
+          "course_code": "ENG201",
+          "course_name": "English Literature",
+          "grade": "B+",
+          "credits": 3
+        },
+        {
+          "course_code": "MAT205",
+          "course_name": "Calculus",
+          "grade": "A-",
+          "credits": 4
+        }
+      ]
+    },
+    {
+      "student_id": "1002",
+      "student_name": "Bob Johnson",
+      "courses": [
+        {
+          "course_code": "PHYS101",
+          "course_name": "Physics",
+          "grade": "B",
+          "credits": 3
+        },
+        {
+          "course_code": "HIS202",
+          "course_name": "World History",
+          "grade": "A",
+          "credits": 3
+        },
+        {
+          "course_code": "ART110",
+          "course_name": "Art Appreciation",
+          "grade": "A-",
+          "credits": 3
+        }
+      ]
+    },
+    {
+      "student_id": "1003",
+      "student_name": "Carol Davis",
+      "courses": [
+        {
+          "course_code": "CHEM101",
+          "course_name": "Chemistry",
+          "grade": "A-",
+          "credits": 4
+        },
+        {
+          "course_code": "BIO201",
+          "course_name": "Biology",
+          "grade": "B+",
+          "credits": 3
+        },
+        {
+          "course_code": "PSYCH101",
+          "course_name": "Introduction to Psychology",
+          "grade": "A",
+          "credits": 3
+        }
+      ]
+    }
+  ]
+}

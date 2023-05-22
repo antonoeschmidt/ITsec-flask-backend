@@ -12,7 +12,11 @@ ALLOWED_USERTYPES = ['admin', 'alumni', 'external']
 
 @app.route('/')
 def hello():
-    return jsonify({'message': 'Email already exists”'}), 200
+    file_path = 'data/api.json'
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+
+    return jsonify(data), 200
 
 @app.route('/login', methods=['POST'])
 def login():

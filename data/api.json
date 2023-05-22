@@ -1,0 +1,125 @@
+{
+    "api_documentation": {
+        "endpoints": [
+            {
+                "url": "/",
+                "method": "GET",
+                "response_body": {
+                    "message": "This documentation"
+                },
+                "response_code": 200
+            },
+            {
+                "url": "/login",
+                "method": "POST",
+                "request_body": {
+                    "username": "string",
+                    "password": "string"
+                },
+                "response_body_success": {
+                    "message": "User logged in successfully. User ID: {user_id}"
+                },
+                "response_body_failure": {
+                    "message": "Invalid username or password"
+                },
+                "response_code_success": 200,
+                "response_code_failure": 401
+            },
+            {
+                "url": "/register",
+                "method": "POST",
+                "request_body": {
+                    "username": "string",
+                    "password": "string",
+                    "user_type": "string"
+                },
+                "response_body_success": {
+                    "message": "User registered successfully"
+                },
+                "response_body_failure_username_exists": {
+                    "message": "Username already exists"
+                },
+                "response_body_failure_invalid_user_type": {
+                    "message": "Invalid user type"
+                },
+                "response_code_success": 201,
+                "response_code_failure_username_exists": 409,
+                "response_code_failure_invalid_user_type": 400
+            },
+            {
+                "url": "/user",
+                "method": "GET",
+                "query_parameters": {
+                    "username": "string"
+                },
+                "response_body_success": {
+                    "id": "integer",
+                    "username": "string",
+                    "user_type": "string",
+                    "transcript_link": "string",
+                    "graduate_certificate_link": "string",
+                    "unique_certificate_number": "string"
+                },
+                "response_code_success": 200
+            },
+            {
+                "url": "/user",
+                "method": "PUT",
+                "request_body": {
+                    "username": "string",
+                    "transcript_link": "string",
+                    "graduate_certificate_link": "string",
+                    "unique_certificate_number": "string"
+                },
+                "response_body_success": {
+                    "message": "User updated successfully"
+                },
+                "response_code_success": 200
+            },
+            {
+                "url": "/verify",
+                "query_parameters": {
+                    "unique_certificate_number": "string"
+                },
+                "method": "GET",
+                "response_body": {
+                    "id": "integer",
+                    "username": "string",
+                    "user_type": "string",
+                    "transcript_link": "string",
+                    "graduate_certificate_link": "string",
+                    "unique_certificate_number": "string"
+                },
+                "response_code": 200
+            },
+            {"url": "/transcript",
+            "query_parameters": "username",
+            "method": "GET",
+            "response_body": {
+                "id": "integer",
+                "username": "string",
+                "user_type": "string",
+                "transcript_link": "string",
+                "graduate_certificate_link": "string",
+                "unique_certificate_number": "string"
+            },
+            "response_code": 200},
+            {
+                "url": "/certificate",
+                "query_parameters": {
+                    "username": "string"
+                },
+                "method": "GET",
+                "response_body": {
+                    "id": "integer",
+                    "username": "string",
+                    "user_type": "string",
+                    "transcript_link": "string",
+                    "graduate_certificate_link": "string",
+                    "unique_certificate_number": "string"
+                },
+                "response_code": 200
+            }
+        ]
+    }
+}

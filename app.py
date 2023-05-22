@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import sqlite3
 import hashlib
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -150,6 +151,41 @@ def verify_certificate():
     }
 
     return jsonify(user), 200
+
+@app.route("/transcript", methods=['GET'])
+def get_transcript():
+    username = request.args.get('username')
+    
+    file_path = 'data/transcripts.json'
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    
+    for d in data['transcripts']:
+        if d['username'] == username:
+            transcript = jsonify(d)
+
+    if transcript is None:
+        return jsonify({'message': 'Transcript not found'}), 404
+
+    return transcript, 200
+
+@app.route("/certificate", methods=['GET'])
+def get_certificate():
+    username = request.args.get('username')
+    
+    file_path = 'data/certificates.json'
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    
+    for d in data['certificates']:
+        if d['username'] == username:
+            certificate = jsonify(d)
+
+    if certificate is None:
+        return jsonify({'message': 'Certificate not found'}), 404
+
+    return certificate, 200
+
 
 def create_tables():
     conn = sqlite3.connect(DATABASE)

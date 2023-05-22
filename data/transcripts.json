@@ -1,8 +1,8 @@
 {
   "transcripts": [
     {
-      "student_id": "1001",
-      "student_name": "Alice Smith",
+      "username": "bob",
+      "student_name": "Bob James",
       "courses": [
         {
           "course_code": "CS101",
@@ -25,8 +25,8 @@
       ]
     },
     {
-      "student_id": "1002",
-      "student_name": "Bob Johnson",
+      "username": "bob1",
+      "student_name": "Bob John",
       "courses": [
         {
           "course_code": "PHYS101",
@@ -49,8 +49,8 @@
       ]
     },
     {
-      "student_id": "1003",
-      "student_name": "Carol Davis",
+      "username": "john",
+      "student_name": "John Bobson",
       "courses": [
         {
           "course_code": "CHEM101",

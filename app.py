@@ -161,6 +161,7 @@ def get_transcript():
     username = request.args.get('username')
     
     file_path = 'data/transcripts.json'
+    transcript = None
     with open(file_path, 'r') as file:
         data = json.load(file)
     
@@ -178,6 +179,7 @@ def get_certificate():
     username = request.args.get('username')
     
     file_path = 'data/certificates.json'
+    certificate = None
     with open(file_path, 'r') as file:
         data = json.load(file)
     

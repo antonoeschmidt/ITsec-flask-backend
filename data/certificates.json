@@ -20,6 +20,20 @@
       "degree": "Bachelor of Science in Chemistry",
       "date_of_graduation": "May 15, 2023",
       "honor": "Cum Laude"
+    },
+    {
+      "username": "s3967658",
+      "student_name": "Tory",
+      "degree": "Master of IT",
+      "date_of_graduation": "May 15, 2023",
+      "honor": "Cum Laude"
+    },
+    {
+      "username": "s1234567",
+      "student_name": "Test user",
+      "degree": "Master of IT",
+      "date_of_graduation": "May 15, 2023",
+      "honor": "Cum Laude"
     }
   ]
 }

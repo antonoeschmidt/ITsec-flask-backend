@@ -71,6 +71,30 @@
           "credits": 3
         }
       ]
+    },
+    {
+      "username": "s3967658",
+      "student_name": "Tory",
+      "courses": [
+        {
+          "course_code": "CHEM101",
+          "course_name": "Chemistry",
+          "grade": "A-",
+          "credits": 4
+        },
+        {
+          "course_code": "BIO201",
+          "course_name": "Biology",
+          "grade": "B+",
+          "credits": 3
+        },
+        {
+          "course_code": "PSYCH101",
+          "course_name": "Introduction to Psychology",
+          "grade": "A",
+          "credits": 3
+        }
+      ]
     }
   ]
 }

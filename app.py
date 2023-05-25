@@ -1,10 +1,11 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, session
 from flask_cors import CORS
 import sqlite3
 import hashlib
 import json
 
 app = Flask(__name__)
+app.secret_key = 'super-secret-key'
 CORS(app)
 
 DATABASE = 'database.db'
@@ -30,7 +31,7 @@ def login():
     cursor = conn.cursor()
 
     # Retrieve the user from the database
-    cursor.execute("SELECT id, password FROM users WHERE username=?", (username,))
+    cursor.execute("SELECT id, password, user_type FROM users WHERE username=?", (username,))
     result = cursor.fetchone()
     conn.close()
 
@@ -42,6 +43,9 @@ def login():
         return jsonify({'message': 'Invalid username or password'}), 401
 
     user_id = result[0]
+    user_type = result[2]
+    session['user_type'] = user_type
+    session['username'] = username
     return jsonify({'message': f'User logged in successfully. User ID: {user_id}'}), 200
 
 @app.route("/register", methods=['POST'])
@@ -109,6 +113,13 @@ def get_user():
 @app.route("/user", methods=['PUT'])
 def update_user():
     data = request.get_json()
+
+    if 'user_type' in session:
+        if session['user_type'] != 'admin':
+            return jsonify({'message': 'Unauthorized. Not an admin.'}), 401
+    else:
+        return jsonify({'message': 'Unauthorized. Not logged in.'}), 401
+
     try:
 
         username, email, name, transcript_link, graduate_certificate_link, unique_certificate_number = data['username'], data['email'], data['name'], data['transcript_link'], data['graduate_certificate_link'], data['unique_certificate_number']

@@ -117,9 +117,9 @@ def update_user():
 
     if 'user_type' in session:
         if session['user_type'] != 'admin':
-            return jsonify({'message': 'Unauthorized. Not an admin.'}), 401
+            return jsonify({'message': 'Unauthorized. Not an admin.', 'session': session}), 401
     else:
-        return jsonify({'message': 'Unauthorized. Not logged in.'}), 401
+        return jsonify({'message': 'Unauthorized. Not logged in.', 'session': session}), 401
 
     try:
 

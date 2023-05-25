@@ -1,13 +1,13 @@
-from flask import Flask, jsonify, request, session
+from flask import Flask, jsonify, request #, session
 from flask_cors import CORS
 import sqlite3
 import hashlib
 import json
 
 app = Flask(__name__)
-app.secret_key = 'super-secret-key'
-app.config['SESSION_COOKIE_HTTPONLY'] = False
-app.config["SESSION_PERMANENT"] = True
+# app.secret_key = 'super-secret-key'
+# app.config['SESSION_COOKIE_HTTPONLY'] = False
+# app.config["SESSION_PERMANENT"] = True
 CORS(app)
 
 DATABASE = 'database.db'
@@ -46,8 +46,8 @@ def login():
 
     user_id = result[0]
     user_type = result[2]
-    session['user_type'] = user_type
-    session['username'] = username
+    # session['user_type'] = user_type
+    # session['username'] = username
     return jsonify({'message': f'User logged in successfully. User ID: {user_id}'}), 200
 
 @app.route("/register", methods=['POST'])
@@ -116,11 +116,11 @@ def get_user():
 def update_user():
     data = request.get_json()
 
-    if 'user_type' in session:
-        if session['user_type'] != 'admin':
-            return jsonify({'message': 'Unauthorized. Not an admin.', 'session': session}), 401
-    else:
-        return jsonify({'message': 'Unauthorized. Not logged in.', 'session': session}), 401
+    # if 'user_type' in session:
+    #     if session['user_type'] != 'admin':
+    #         return jsonify({'message': 'Unauthorized. Not an admin.', 'session': session}), 401
+    # else:
+    #     return jsonify({'message': 'Unauthorized. Not logged in.', 'session': session}), 401
 
     try:
 

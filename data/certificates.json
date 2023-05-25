@@ -34,6 +34,13 @@
       "degree": "Master of IT",
       "date_of_graduation": "May 15, 2023",
       "honor": "Cum Laude"
+    },
+    {
+      "username": "admin",
+      "student_name": "Admin",
+      "degree": "Master of IT",
+      "date_of_graduation": "May 15, 2023",
+      "honor": "Cum Laude"
     }
   ]
 }

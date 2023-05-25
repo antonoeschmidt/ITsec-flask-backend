@@ -81,7 +81,6 @@ This method can be used to let users download and acess their transcripts
 @app.route("/user", methods=['GET'])
 def get_user():
     username = request.args.get('username')
-    print(username)
 
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
@@ -97,9 +96,11 @@ def get_user():
         'id': result[0],
         'username': result[1],
         'user_type': result[3],
-        'transcript_link': result[4],
-        'graduate_certificate_link': result[5],
-        'unique_certificate_number': result[6]
+        'name': result[4],
+        'email': result[5],
+        'transcript_link': result[6],
+        'graduate_certificate_link': result[7],
+        'unique_certificate_number': result[8]
     }
 
     return user
@@ -110,19 +111,19 @@ def update_user():
     data = request.get_json()
     try:
 
-        username, transcript_link, graduate_certificate_link, unique_certificate_number = data['username'], data['transcript_link'], data['graduate_certificate_link'], data['unique_certificate_number']
+        username, email, name, transcript_link, graduate_certificate_link, unique_certificate_number = data['username'], data['email'], data['name'], data['transcript_link'], data['graduate_certificate_link'], data['unique_certificate_number']
 
-        if not username or not transcript_link or not graduate_certificate_link or not unique_certificate_number:
-            return jsonify({'message': 'Missing username, transcript link, graduate certificate link or unique certificate number'}), 400
+        if not username or not transcript_link or not graduate_certificate_link or not unique_certificate_number or not email or not name:
+            return jsonify({'message': 'Missing username, email, name, transcript link, graduate certificate link or unique certificate number'}), 400
 
         conn = sqlite3.connect(DATABASE)
         cursor = conn.cursor()
 
-        cursor.execute("UPDATE users SET transcript_link=?, graduate_certificate_link=?, unique_certificate_number=? WHERE username=?", (transcript_link, graduate_certificate_link, unique_certificate_number, username))
+        cursor.execute("UPDATE users SET email=?, name=?, transcript_link=?, graduate_certificate_link=?, unique_certificate_number=? WHERE username=?", (email, name, transcript_link, graduate_certificate_link, unique_certificate_number, username))
         conn.commit()
         conn.close()
     except:
-        return jsonify({'message': 'Missing username, transcript link, graduate certificate link or unique certificate number'}), 400
+        return jsonify({'message': 'Missing username, email, name, transcript link, graduate certificate link or unique certificate number'}), 400
 
     return jsonify({'message': 'User updated successfully'}), 200
 
@@ -203,6 +204,8 @@ def create_tables():
                        username TEXT UNIQUE NOT NULL,
                        password TEXT NOT NULL,
                        user_type TEXT NOT NULL,
+                       name TEXT,
+                       email TEXT,
                        transcript_link TEXT,
                        graduate_certificate_link TEXT,
                        unique_certificate_number TEXT
@@ -210,8 +213,11 @@ def create_tables():
     conn.commit()
     conn.close()
 
+    print("Table 'users' created")
+
 if __name__ == '__main__':
     app.run()
+    print('Server running on port 5000')
     create_tables()
 
 

@@ -7,6 +7,7 @@ import json
 app = Flask(__name__)
 app.secret_key = 'super-secret-key'
 app.config['SESSION_COOKIE_HTTPONLY'] = False
+app.config["SESSION_PERMANENT"] = True
 CORS(app)
 
 DATABASE = 'database.db'
